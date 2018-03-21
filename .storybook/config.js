@@ -1,22 +1,9 @@
-const genDefaultConfig = require("@storybook/react/dist/server/config/defaults/webpack.config.js");
+import { configure } from "@storybook/react";
 
-const path = require("path");
+// automatically import all files ending in *.stories.js
+const req = require.context("../src/ui", true, /.stories.tsx$/);
+function loadStories() {
+  req.keys().forEach(filename => req(filename));
+}
 
-module.exports = (baseConfig, env) => {
-  const config = genDefaultConfig(baseConfig, env);
-
-  config.resolve.extensions.push(".ts", ".tsx");
-
-  config.module.rules.unshift({
-    test: /\.(ts|tsx)$/,
-    loader: require.resolve("ts-loader"),
-    include: [path.resolve(__dirname, "../src")],
-    options: {
-      transpileOnly: true
-    }
-  });
-
-  config.module.rules[1].test = /\.(ts|tsx)$/;
-
-  return config;
-};
+configure(loadStories, module);

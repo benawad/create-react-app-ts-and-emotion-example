@@ -33,7 +33,7 @@
     "build": "react-app-rewired build --scripts-version react-scripts-ts",
     "test": "react-app-rewired test --scripts-version react-scripts-ts --env=jsdom",
     "eject": "react-app-rewired eject --scripts-version react-scripts-ts",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }
