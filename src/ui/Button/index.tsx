@@ -1,5 +1,5 @@
 import styled from "react-emotion";
 
-export default styled.button`
-  color: red;
+export default styled("button")`
+  color: blue;
 `;

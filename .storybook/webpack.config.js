@@ -8,7 +8,6 @@ module.exports = (baseConfig, env) => {
   config.resolve.extensions.push(".ts", ".tsx");
 
   config.module.rules[0].test = /\.(ts|tsx)$/;
-  config.module.rules[0].query.presets = ["@babel/preset-env"];
 
   config.module.rules.unshift({
     test: /\.(ts|tsx)$/,
@@ -18,8 +17,6 @@ module.exports = (baseConfig, env) => {
       transpileOnly: true
     }
   });
-
-  // [ts-loader, babel-loader, ...]
 
   return config;
 };
